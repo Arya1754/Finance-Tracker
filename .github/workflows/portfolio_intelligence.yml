@@ -1,0 +1,62 @@
+name: AI Portfolio Intelligence
+
+on:
+  schedule:
+    # Morning Job: 4:00 AM UTC (9:30 AM IST) Monday to Friday
+    - cron: '0 4 * * 1-5'
+    
+    # Volatility Job: Every 30 mins from 4:30 AM to 10:00 AM UTC, Monday to Friday
+    - cron: '30 4 * * 1-5'
+    - cron: '0,30 5-9 * * 1-5'
+    - cron: '0 10 * * 1-5'
+    
+  workflow_dispatch:
+    inputs:
+      job_type:
+        description: 'Job to run (morning/volatility)'
+        required: true
+        default: 'morning'
+        type: choice
+        options:
+          - morning
+          - volatility
+
+jobs:
+  run-portfolio-intelligence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Determine Job Type
+        id: determine_job
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "job_type=${{ inputs.job_type }}" >> $GITHUB_ENV
+          elif [[ "${{ github.event.schedule }}" == "0 4 * * 1-5" ]]; then
+            echo "job_type=morning" >> $GITHUB_ENV
+          else
+            echo "job_type=volatility" >> $GITHUB_ENV
+          fi
+          
+      - name: Run Job
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: PYTHONPATH=. python backend/run_jobs.py --job $job_type
+        
+      - name: Commit Model and History
+        if: env.job_type == 'morning'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add backend/models/ data/prediction_history.csv logs/ || true
+          git commit -m "chore: Update models, logs, and prediction history" || exit 0
+          git push
