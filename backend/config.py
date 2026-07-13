@@ -18,14 +18,11 @@ LOGS_DIR.mkdir(exist_ok=True)
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Tickers to track
-TICKERS = [
-    "BANDHANBNK.NS",
-    "ADANIPOWER.NS",
-    "WSTCSTPAPR.NS",
-    "POONAWALLA.NS",
-    "ZOTA.NS",
-    "GOLDBEES.NS"
-]
+TICKERS = []
+watchlist_path = DATA_DIR / "watchlist.txt"
+if watchlist_path.exists():
+    with open(watchlist_path, 'r') as f:
+        TICKERS = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
 # Telegram config
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "")
