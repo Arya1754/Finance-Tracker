@@ -1,8 +1,14 @@
 {
   "BANDHANBNK.NS": {
-    "shares": 220
+    "shares": 150
   },
   "ADANIPOWER.NS": {
-    "shares": 75
+    "shares": 500
+  },
+  "WSTCSTPAPR.NS": {
+    "shares": 50
+  },
+  "RELINFRA.NS": {
+    "shares": 500
   }
 }

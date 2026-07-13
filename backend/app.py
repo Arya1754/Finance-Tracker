@@ -79,7 +79,7 @@ def run_volatility_job():
             
             change_pct = ((current_price - prev_close) / prev_close) * 100
             
-            # 5% threshold
+            # 5% threshold (Hikes and Crashes)
             if abs(change_pct) >= 5.0:
                 msg = format_volatility_alert(ticker, current_price, change_pct)
                 send_telegram_message(msg)
