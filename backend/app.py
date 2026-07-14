@@ -1,7 +1,6 @@
 import logging
 import yfinance as yf
 from flask import Flask, jsonify
-from flask_cors import CORS
 from backend.config import TICKERS, DATA_DIR
 from backend.portfolio import PortfolioManager
 from backend.predictor import EnsemblePredictor
@@ -10,7 +9,6 @@ from backend.telegram_service import send_telegram_message, format_morning_repor
 from backend.history_updater import update_prediction_history
 
 app = Flask(__name__)
-CORS(app)
 logger = logging.getLogger("app")
 
 portfolio_mgr = PortfolioManager(DATA_DIR / "portfolio.json")
