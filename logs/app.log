@@ -34,3 +34,7 @@
 2026-07-14 06:11:12,367 - app - INFO - Starting morning job...
 2026-07-14 06:11:16,535 - app - INFO - Morning Job Status: 200
 2026-07-14 06:11:16,535 - app - INFO - Response: {'message': 'Morning report generated and sent.', 'status': 'success'}
+2026-07-15 06:14:52,326 - app - INFO - Executing morning job via run_jobs.py
+2026-07-15 06:14:52,327 - app - INFO - Starting morning job...
+2026-07-15 06:14:57,410 - app - INFO - Morning Job Status: 200
+2026-07-15 06:14:57,410 - app - INFO - Response: {'message': 'Morning report generated and sent.', 'status': 'success'}
