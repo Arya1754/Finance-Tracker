@@ -83,3 +83,9 @@
 2026-09-02 08:27:57,089 - prediction - INFO - Prediction history updated with actuals.
 2026-09-03 08:36:09,837 - prediction - INFO - Prediction history updated with actuals.
 2026-09-04 08:31:30,725 - prediction - INFO - Prediction history updated with actuals.
+2026-09-07 08:59:42,945 - prediction - INFO - Prediction history updated with actuals.
+2026-09-07 08:59:43,379 - prediction - INFO - Training models for BANDHANBNK.NS
+2026-09-07 08:59:47,784 - prediction - INFO - Training models for ADANIPOWER.NS
+2026-09-07 08:59:52,661 - prediction - INFO - Training models for WSTCSTPAPR.NS
+2026-09-07 08:59:57,044 - prediction - INFO - Training models for RELINFRA.NS
+2026-09-07 09:00:01,233 - prediction - INFO - Training models for GOLDBEES.NS
