@@ -508,3 +508,8 @@ Date,Ticker,Predicted Price,Actual Price,Absolute Error,Direction Correct,Confid
 2026-11-24,WSTCSTPAPR.NS,611.94,,,,65.0,v1.0 Ensemble
 2026-11-24,RELINFRA.NS,55.59,,,,75.0,v1.0 Ensemble
 2026-11-24,GOLDBEES.NS,12035.08,,,,85.0,v1.0 Ensemble
+2026-11-25,BANDHANBNK.NS,171.47,,,,75.0,v1.0 Ensemble
+2026-11-25,ADANIPOWER.NS,206.65,,,,75.0,v1.0 Ensemble
+2026-11-25,WSTCSTPAPR.NS,605.4,,,,65.0,v1.0 Ensemble
+2026-11-25,RELINFRA.NS,54.76,,,,75.0,v1.0 Ensemble
+2026-11-25,GOLDBEES.NS,12039.64,,,,85.0,v1.0 Ensemble
